@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "yarn run clean && tsc",
-    "build:watch": "tsc -w",
+    "build:watch": "cross-env TSC_NONPOLLING_WATCHER=1 tsc -w",
     "clean": "rimraf dist src/**/*.js src/**/*.js.map src/app/**/*.d.ts src/lib/**/*.d.ts src/node_modules/**/*.d.ts src/__tests__/**/*.d.ts",
     "lint": "tslint --type-check -c tslint.json -p tsconfig.json",
     "lint:fix": "yarn run lint -- --fix",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@types/jest": "^19.2.4",
+    "cross-env": "^5.0.5",
     "dev-testing": "^0.6.0",
     "jest": "^19.0.2",
     "rimraf": "^2.6.1",
